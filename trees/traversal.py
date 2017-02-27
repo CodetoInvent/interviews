@@ -28,7 +28,7 @@ def inorder(node):
     print node.data
     inorder(node.right)
 
-inorder(root)
+# inorder(root)
 
 def iterative_inorder(node):
     stack = []
@@ -60,8 +60,8 @@ def bfs(root):
     while queue:
         node = queue.popleft()
         print node
-        
-        if node: queue.append(node.left)
-        if node: queue.append(node.right)
+
+        if node.left: queue.append(node.left)
+        if node.right: queue.append(node.right)
 
 # bfs(root)
