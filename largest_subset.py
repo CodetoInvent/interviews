@@ -20,4 +20,4 @@ def subset(arr):
 
 arr = [1, 3, 16, 11, 4, 7, 5, 6, 10, 12, 14]
 arr = subset(arr)
-print arr
+print sorted(arr, key=len)

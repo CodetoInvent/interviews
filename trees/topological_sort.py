@@ -3,7 +3,7 @@ from tree import *
 def topological_sort(graph):
     visited = set()
     stack = []
-    
+
     for node in graph.nodes:
         if node in visited: continue
         traverse_node(node)
@@ -18,3 +18,5 @@ def traverse_node(root, visited, stack):
 
     stack.append(node)
 
+
+topological_sort(root)

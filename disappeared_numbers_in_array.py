@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # 448. Find All Numbers Disappeared in an Array
-# https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/ 
+# https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
 
 # Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
@@ -26,6 +26,6 @@ def find_numbers(array):
         if v > 0: result.append(i+1)
 
     return result
-    
+
 
 print find_numbers([4,3,2,7,8,2,3,1])

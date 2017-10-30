@@ -26,7 +26,9 @@ class LinkedList():
         p = self.head
         if not p:
             return None
+            # remove next!!!! below
         while p.next:
+            # check for root!
             if p.data == k:
                 return p
             p = p.next
@@ -47,7 +49,7 @@ class LinkedList():
     def __str__(self):
         p = self.head
         if not p: return '<empty>'
-        
+
         s = self.head.data
         while p.next:
             p = p.next
@@ -58,9 +60,9 @@ class LinkedList():
 l = LinkedList()
 
 l.insert('a')
-l.insert('b')
-l.insert('c')
-l.insert('d')
+# l.insert('b')
+# l.insert('c')
+# l.insert('d')
 print l
 
 
@@ -104,7 +106,7 @@ reverse_linked_list(l)
 
 #     while(fast != null && fast.next != null) {
 #         slow = slow.next;          // 1 hop
-#         fast = fast.next.next;     // 2 hops 
+#         fast = fast.next.next;     // 2 hops
 
 #         if(slow == fast)  // fast caught up to slow, so there is a loop
 #             return true;

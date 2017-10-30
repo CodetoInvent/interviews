@@ -3,7 +3,7 @@
 
 def combination(nums):
     result = []
-    
+
     def calc(pre, string):
         if pre: result.append(pre)
         for i in range(len(string)):
@@ -14,13 +14,27 @@ def combination(nums):
 
 # print combination([2, 3, 5, 7])
 
+def combination2(nums):
+    result = []
+
+    def calc(pre, string):
+        if pre: result.append(str(pre))
+        for i in range(len(string)):
+            calc(str(pre) + str(string[i]), string[i+1:])
+
+    calc(1, nums)
+    return sorted(result)
+
+print combination2([1, 2, 3])
+
+
 def max_subset(nums, n):
     result = []
-    
+
     def calc(pre, string, sum):
         for i in range(len(string)):
-            term = pre + '+' + string[i] if pre else string[i]  
-            if sum + int(string[i]) == n: 
+            term = pre + '+' + string[i] if pre else string[i]
+            if sum + int(string[i]) == n:
                 result.append(term)
                 continue
             else: calc(term, string[i+1:], sum + int(string[i]))
@@ -54,7 +68,7 @@ def n_permutation(prefix, string, n):
 
 def n_combination(nums):
     result = []
-    
+
     def calc(pre, string, index):
         if index == 3: print pre
         for i in range(len(string)):

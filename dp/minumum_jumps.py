@@ -22,7 +22,7 @@ def minimum_jumps(arr):
     return counter
 
 
-arr = [1, 4, 3, 7, 1, 2, 6, 7, 6, 10]
+arr = [2, 3, 1, 1, 2, 4, 2, 0, 1, 1]
 
 print minimum_jumps(arr)
 

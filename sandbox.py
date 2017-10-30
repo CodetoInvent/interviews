@@ -42,3 +42,23 @@ data = ['a,123', 'b,456', 'c,789']
 print reduce(lambda x, y: x + y.split(',')[-1], data)
 
 r = reduce(lambda x, y: x +';' +y.split(';')[-1], r[1])
+
+
+
+
+dictionary = {
+  'Key1': '1',
+  'Key2': {
+    'a' : '2',
+    'b' : '3',
+    'c' : {
+      'd' : '3',
+      'e' : '1'
+      }
+    }
+}
+
+def flatten(dictionary, key, result):
+  for k, v in dictionary.items():
+
+

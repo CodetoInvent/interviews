@@ -16,15 +16,15 @@ print fib(12)
 
 def fib2(n):
   a, b = 0, 1
-  for i in range(n):
+  for i in range(2, n):
     # tmp = b
     # b = a + b
     # a = tmp
     a, b = b, a + b
 
-  return a 
+  return a
 
-print fib2(12)
+print fib2(10)
 
 
 def fib3(n):
