@@ -1,21 +1,36 @@
 
+# def max_subsequence_result(arr):
+#   i, j = 0, 1
+#   result = [1] * len(array)
+
+#   while j < len(array):
+#     if array[i] < array[j]:
+#       result[j] = max(
+#         result[j],
+#         result[i] + 1
+#       )
+
+#     i+= 1
+#     if i == j: i, j = 0, j+1
+
+
+#   return result
+
+
 def max_subsequence_result(arr):
-  i, j = 0, 1
-  result = [1] * len(array)
 
-  while j < len(array):
-    if array[i] < array[j]:
-      result[j] = max(
-        result[j],
-        result[i] + 1
-      )
+  result = [1] * len(arr)
 
-    i+= 1
-    if i == j: i, j = 0, j+1
-
+  for j in range(len(arr)):
+    result[j] = max(
+      [
+        arr[i] + 1
+        for i in range(j)
+        if arr[i] < arr[j]
+      ] + [result[j]]
+    )
 
   return result
-
 
 def backtrack_longest_subsequence(result):
   index, count = max(enumerate(subsequences), key=lambda x: x[1])
