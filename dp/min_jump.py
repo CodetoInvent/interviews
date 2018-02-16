@@ -25,4 +25,4 @@ def min_jump(arr):
   return result
 
 
-print min_jump([2, 3, 1, 1, 2, 4, 2, 0, 1, 1])
+print min_jump([1, 4, 3, 7, 1, 2, 6, 7, 6, 10])

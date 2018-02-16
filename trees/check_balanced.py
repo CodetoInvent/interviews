@@ -12,20 +12,23 @@ from tree import *
 #     return Math.max(leftHeight, rightHeight);
 # }
 
-def height(root):
-    if not root: return 0
-    return 1 + max(height(root.left), height(root.right))
+def height(node):
+  if not node: return 0
+  return 1 + max(
+    height(node.left),
+    height(node.right)
+  )
 
+def check_balanced(tree):
+  if not tree: return True
 
-def balanced(root):
-    if not root: return True
+  left = height(tree.left)
+  right = height(tree.right)
+  height_diff = abs(left - right)
+  return all([
+    height_diff < 2,
+    check_balanced(tree.left),
+    check_balanced(tree.right)
+  ])
 
-    left_height = height(root.left)
-    right_height = height(root.right)
-
-    return abs(left_height - right_height) <= 1 and \
-        balanced(root.left) and \
-        balanced(root.right)
-
-
-print balanced(root)
+print check_balanced(root)

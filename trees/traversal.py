@@ -65,3 +65,5 @@ def bfs(root):
         if node.right: queue.append(node.right)
 
 # bfs(root)
+
+# TODO: add dfs

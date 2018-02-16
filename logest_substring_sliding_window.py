@@ -1,10 +1,6 @@
 # Longest Substring Without Repeating Characters
 
-def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+def lengthOfLongestSubstring(s):
     maximum = 0
     i = j = 0
     charachters = set()
@@ -21,3 +17,4 @@ def lengthOfLongestSubstring(self, s):
 
 
 
+print lengthOfLongestSubstring('abcddabcde')
