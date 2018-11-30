@@ -1,17 +1,16 @@
 from linkedlist import *
 
 def reverse_linked_list(ll):
-    previous = next = None
+    previous = next_node = None
     current = ll.head
 
     if not current: return None
 
     while current:
-        next = current.next,
-        current.next = previous
+        next_node, current.next = current.next, previous
 
-        previous = current
-        current = next
+        previous, current = current, next_node
+
 
     ll.head = previous
 

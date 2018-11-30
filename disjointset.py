@@ -1,57 +1,52 @@
-
 class Node():
 
-    def __init__(self, data, parent = None, rank = 0):
-        self.data = data 
-        self.parent = parent 
+    def __init__(self, value, rank = 0):
+        self.value = value
         self.rank = rank
-
-    def __str__(self):
-        return str(self.data)
 
     def __repr__(self):
         return self.__str__()
+
+    def __str__(self):
+        return "(%s)" % self.value
+
+
 
 class DisjointSet():
 
     def __init__(self):
         self.nodes = {}
 
-    def make_set(self, data):
-        node = Node(data)
+    def make_set(self, value):
+        if value in self.nodes: return None
+
+        node = Node(value)
         node.parent = node
-        self.nodes[data] = node
+        self.nodes[value] = node
 
-    def find(self, node):
-        parent = node.parent
+    def find_set(self, value):
+        if not value in self.nodes: return None
 
-        if node == parent:
-            return node
+        node = self.nodes[value]
 
-        node.parent = self.find(parent)
-        return node.parent
+        while node.parent != node:
+            node = node.parent
 
+        return node
 
-    def find_set(self, data):
-        if data not in self.nodes: return None
-        node = self.nodes[data]
-        return self.find(node)
+    def union(self, a, b):
 
-    def union(self, data1, data2):
-        
-        parent1 = self.find_set(data1)
-        parent2 = self.find_set(data2)
+        i = self.find_set(a)
+        j = self.find_set(b)
 
-        if parent1 == None or parent2 == None: return
+        if not i or not j: return None
 
-        if parent1 == parent2: return
-
-        if parent1.rank >= parent2.rank:
-            if parent1.rank == parent2.rank:
-                parent1.rank += 1
-            parent2.parent = parent1
+        if i.rank >= j.rank:
+            j.parent = i
+            i.rank += 1
         else:
-            parent1.parent = parent2
+            i.parent = j
+            j.rank += 1
 
 
 ds = DisjointSet()
@@ -69,7 +64,8 @@ ds.union(4,5)
 ds.union(6,7)
 ds.union(5,6)
 ds.union(3,7)
+print vars(ds.nodes[1])
+
 
 for i in range(1,8):
-    print(ds.find_set(i))
-
+    print(i, ds.find_set(i))

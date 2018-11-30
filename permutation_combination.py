@@ -25,7 +25,7 @@ def combination2(nums):
     calc(1, nums)
     return sorted(result)
 
-print combination2([1, 2, 3])
+# print combination2([1, 2, 3])
 
 
 def max_subset(nums, n):
@@ -56,7 +56,7 @@ def permutation(prefix, string):
 
 
 def n_permutation(prefix, string, n):
-    if n == 3: print prefix
+    if n == 2: print prefix
     else:
         for i in range(len(string)):
             str = string[:i] + string[i+1:]

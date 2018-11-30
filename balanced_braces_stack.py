@@ -5,7 +5,7 @@
 check = {
     '()()()': True,
     '(()())': True,
-    ')()(': False,
+    '()()()))': False,
     '({[][]})': True,
     '{[}]': False
 }
@@ -15,30 +15,44 @@ end_brace = ')'
 
 braces = {'}': '{', ']': '[', ')': '('}
 
-def validate_braces(str):
-    stack = []
-    for i in str:
-        if i not in braces:
-            stack.append(i)
-            continue
+# def validate_braces(str):
+#     stack = []
+#     for i in str:
+#         if i not in braces:
+#             stack.append(i)
+#             continue
 
-        if not stack or braces[i] != stack.pop():
-            return False
-    return True
+#         if not stack or braces[i] != stack.pop():
+#             return False
+#     return True
+
+
+def validate_braces(brace):
+
+    stack = []
+
+    for i in brace:
+        if i in braces.keys():
+            if not stack or braces[i] != stack.pop():
+                return False
+        else:
+            stack.append(i)
+
+    return not stack
 
 
 for i, v in check.items():
     assert validate_braces(i) == v
 
-def validate_braces(string):
-    balance = 0
+# def validate_braces(string):
+#     balance = 0
 
-    for i in string:
-        if i == '(':
-            balance += 1
-        if i == ')':
-            balance -= 1
-        if balance < 0:
-            return False
+#     for i in string:
+#         if i == '(':
+#             balance += 1
+#         if i == ')':
+#             balance -= 1
+#         if balance < 0:
+#             return False
 
-    return balance == 0
+#     return balance == 0

@@ -55,3 +55,51 @@ def get_biggest_region(grid):
     
     return maximum
     
+
+
+
+# leetcode
+
+class Solution(object):
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        return main(grid)
+        
+def main(grid):
+    if not grid or not grid[0]: return 0
+    
+    visited = set()
+    island_number = 0
+    for row in range(len(grid)):
+        for column in range(len(grid[0])):
+            if search(row, column, grid, visited):
+                island_number +=1
+    
+    return island_number
+                    
+def search(row, column, grid, visited):    
+    if grid[row][column] != '1': return False
+    if (row, column) in visited: 
+        return False
+    
+    in_bounds = lambda x, y: (x >= 0 and x < len(grid)) and (y >= 0 and y < len(grid[0]))
+    stack = [(row, column)]
+    
+    while stack:
+        top = stack.pop()
+        row, column = top
+        if top in visited \
+            or not in_bounds(row, column) \
+            or grid[row][column] != '1': 
+            continue
+        visited.add((row, column))
+        
+        stack.append((row-1, column)) 
+        stack.append((row+1, column))
+        stack.append((row, column-1)) 
+        stack.append((row, column+1))
+    return True
+        
